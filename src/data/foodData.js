@@ -6,7 +6,7 @@ const getAssetUrl = (name) => {
 };
 
 export const foodData = [
-  // --- SALADS (9 Items) ---
+  // --- SALADS (9 Items) --- Har item ko uski unique numbered image de di hai
   { id: 1, name: "Avocado Classic Green Salad", category: "Salads", price: 199, image: getAssetUrl("AvocadoGreensaladcard-1.jpg") },
   { id: 2, name: "Crunchy Cucumber Avocado Salad", category: "Salads", price: 179, image: getAssetUrl("AvocadoGreensaladcard-2.jpg") },
   { id: 3, name: "Green Apple Kale Salad", category: "Salads", price: 189, image: getAssetUrl("AvocadoGreensaladcard-3.jpg") },
@@ -17,7 +17,7 @@ export const foodData = [
   { id: 8, name: "Fiber-Rich Broccoli Salad", category: "Salads", price: 169, image: getAssetUrl("AvocadoGreensaladcard-8.jpg") },
   { id: 9, name: "Premium Avocado Feta Mix", category: "Salads", price: 249, image: getAssetUrl("AvocadoGreensaladcard-9.jpg") },
 
-  // --- BOWLS (13 Items) ---
+  // --- BOWLS (13 Items) --- Idhar bhi unique numbers sequential laga diye hain
   { id: 10, name: "Quinoa Broccoli Power Bowl", category: "Bowls", price: 249, image: getAssetUrl("Quinoa&BroccoliBowlcard-1.jpg") },
   { id: 11, name: "Tofu Protein Grain Bowl", category: "Bowls", price: 269, image: getAssetUrl("Quinoa&BroccoliBowlcard-2.jpg") },
   { id: 12, name: "Spiced Lentil Buddha Bowl", category: "Bowls", price: 229, image: getAssetUrl("Quinoa&BroccoliBowlcard-3.jpg") },
@@ -59,7 +59,7 @@ export const foodData = [
   { id: 44, name: "Broccoli Spinach Dual Soup", category: "Soups", price: 155, image: getAssetUrl("CreamySpinachSoupcard-11.jpg") },
   { id: 45, name: "Diet-Friendly Low Sodium Soup", category: "Soups", price: 129, image: getAssetUrl("CreamySpinachSoupcard-12.jpg") },
 
-  // --- WRAPS (8 Items) ---
+  // --- WRAPS (8 Items) --- Sequential numbers map kar diye hain
   { id: 46, name: "Paneer Avocado Whole Wheat Wrap", category: "Wraps", price: 189, image: getAssetUrl("Wrapcard-1.jpg") },
   { id: 47, name: "Hummus Veggie Crunch Wrap", category: "Wraps", price: 159, image: getAssetUrl("Wrapcard-2.jpg") },
   { id: 48, name: "Spiced Chickpea Lettuce Wrap", category: "Wraps", price: 169, image: getAssetUrl("Wrapcard-3.jpg") },
