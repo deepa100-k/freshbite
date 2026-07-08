@@ -7,15 +7,15 @@ const getAssetUrl = (name) => {
 
 export const foodData = [
   // --- SALADS (9 Items) --- Har item ko uski unique numbered image de di hai
-  { id: 1, name: "Avocado Classic Green Salad", category: "Salads", price: 199, image: getAssetUrl("AvocadoGreensaladcard-1.jpg") },
-  { id: 2, name: "Crunchy Cucumber Avocado Salad", category: "Salads", price: 179, image: getAssetUrl("AvocadoGreensaladcard-2.jpg") },
-  { id: 3, name: "Green Apple Kale Salad", category: "Salads", price: 189, image: getAssetUrl("AvocadoGreensaladcard-3.jpg") },
-  { id: 4, name: "Greek Style Olive Salad", category: "Salads", price: 209, image: getAssetUrl("AvocadoGreensaladcard-4.jpg") },
-  { id: 5, name: "Zesty Lime Avocado Mix", category: "Salads", price: 195, image: getAssetUrl("AvocadoGreensaladcard-5.jpg") },
-  { id: 6, name: "Mediterranean Herb Salad", category: "Salads", price: 185, image: getAssetUrl("AvocadoGreensaladcard-6.jpg") },
-  { id: 7, name: "Nutty Spinach Green Salad", category: "Salads", price: 219, image: getAssetUrl("AvocadoGreensaladcard-7.jpg") },
-  { id: 8, name: "Fiber-Rich Broccoli Salad", category: "Salads", price: 169, image: getAssetUrl("AvocadoGreensaladcard-8.jpg") },
-  { id: 9, name: "Premium Avocado Feta Mix", category: "Salads", price: 249, image: getAssetUrl("AvocadoGreensaladcard-9.jpg") },
+  { id: 1, name: "Avocado Classic Green Salad", category: "Salads", price: 199, image: getAssetUrl("AvocadoGreenSaladcard-1.jpg") },
+  { id: 2, name: "Crunchy Cucumber Avocado Salad", category: "Salads", price: 179, image: getAssetUrl("AvocadoGreenSaladcard-2.jpg") },
+  { id: 3, name: "Green Apple Kale Salad", category: "Salads", price: 189, image: getAssetUrl("AvocadoGreenSaladcard-3.jpg") },
+  { id: 4, name: "Greek Style Olive Salad", category: "Salads", price: 209, image: getAssetUrl("AvocadoGreenSaladcard-4.jpg") },
+  { id: 5, name: "Zesty Lime Avocado Mix", category: "Salads", price: 195, image: getAssetUrl("AvocadoGreenSaladcard-5.jpg") },
+  { id: 6, name: "Mediterranean Herb Salad", category: "Salads", price: 185, image: getAssetUrl("AvocadoGreenSaladcard-6.jpg") },
+  { id: 7, name: "Nutty Spinach Green Salad", category: "Salads", price: 219, image: getAssetUrl("AvocadoGreenSaladcard-7.jpg") },
+  { id: 8, name: "Fiber-Rich Broccoli Salad", category: "Salads", price: 169, image: getAssetUrl("AvocadoGreenSaladcard-8.jpg") },
+  { id: 9, name: "Premium Avocado Feta Mix", category: "Salads", price: 249, image: getAssetUrl("AvocadoGreenSaladcard-9.jpg") },
 
   // --- BOWLS (13 Items) --- Idhar bhi unique numbers sequential laga diye hain
   { id: 10, name: "Quinoa Broccoli Power Bowl", category: "Bowls", price: 249, image: getAssetUrl("Quinoa&BroccoliBowlcard-1.jpg") },

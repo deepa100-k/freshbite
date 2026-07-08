@@ -2,21 +2,27 @@ import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom"; 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { foodData, MENU_CATEGORIES } from "../data/foodData"; // Make sure MENU_CATEGORIES includes "Fruits"
+import { foodData, MENU_CATEGORIES } from "../data/foodData"; 
 import { useCart } from "../context/CartContext"; 
 
-// Utility Function: Added 'Fruits' into round-robin layout sequence for 'All' tab
-const generateInterleavedData = (rawItems, maxPerCategory = 9) => {
-  // FEAT: Included "Fruits" here so they interleave on the default dashboard view
+// FIXES: Sabhi unique items ko uniquely sequence mix karne ke liye array layout map kiya
+const generateInterleavedData = (rawItems) => {
   const categories = ["Salads", "Bowls", "Drinks", "Soups", "Wraps", "Fruits"];
-  const matrix = categories.map(cat => 
-    rawItems.filter(item => item.category === cat).slice(0, maxPerCategory)
+  
+  // Har category ke items ko alag alag buckets me nikalenge
+  const buckets = categories.map(cat => 
+    rawItems.filter(item => item.category === cat)
   );
 
   const interleaved = [];
-  for (let i = 0; i < maxPerCategory; i++) {
-    matrix.forEach(bucket => {
-      if (bucket[i]) interleaved.push(bucket[i]);
+  const maxItems = Math.max(...buckets.map(b => b.length));
+
+  // Round-robin logic: Ek ek karke har category se unique nested elements uthayenge
+  for (let i = 0; i < maxItems; i++) {
+    buckets.forEach(bucket => {
+      if (bucket[i]) {
+        interleaved.push(bucket[i]);
+      }
     });
   }
   return interleaved;
@@ -31,13 +37,13 @@ const Menu = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { cart, addToCart, removeFromCart } = useCart(); 
 
-  // CONNECTIVITY JADU: Catching navigation filters sent via Home layout cards
+  // CONNECTIVITY JADU: Homepage redirection handler
   useEffect(() => {
     const typeParam = searchParams.get("type");
     if (typeParam) {
       if (typeParam.includes("Salad")) setSelectedCategory("Salads");
       else if (typeParam.includes("Bowl") && !typeParam.includes("Fruit")) setSelectedCategory("Bowls");
-      else if (typeParam.includes("Fruit")) setSelectedCategory("Fruits"); // FEAT: Direct redirect for Fruit Bowl mapping
+      else if (typeParam.includes("Fruit")) setSelectedCategory("Fruits"); 
       else if (typeParam.includes("Smoothie") || typeParam.includes("Shake")) setSelectedCategory("Drinks");
       else if (typeParam.includes("Toast") || typeParam.includes("Wraps")) setSelectedCategory("Wraps");
       else if (typeParam.includes("Soup")) setSelectedCategory("Soups");
@@ -49,13 +55,14 @@ const Menu = () => {
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800); 
+    }, 500); 
     return () => clearTimeout(timer);
   }, [selectedCategory]);
 
   const filteredAndSortedData = useMemo(() => {
+    // FIX: Agar All selected hai toh poora dynamic interleaved pool pass hoga bina duplicates ke
     let items = selectedCategory === "All" 
-      ? generateInterleavedData(foodData, 9) 
+      ? generateInterleavedData(foodData) 
       : foodData.filter(item => item.category === selectedCategory);
 
     const query = searchQuery.trim().toLowerCase();
@@ -83,7 +90,7 @@ const Menu = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        {/* Modern Minimalist Header Section */}
+        {/* Header Section */}
         <header className="mb-12 border-b border-stone-200/60 pb-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <h1 className="text-4xl font-extrabold tracking-tight text-stone-900 sm:text-5xl">
@@ -94,7 +101,7 @@ const Menu = () => {
             </p>
           </div>
           
-          {/* Professional Integrated Search Bar */}
+          {/* Search Bar */}
           <div className="relative w-full md:max-w-xs group">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-stone-400 group-focus-within:text-emerald-600 transition-colors">
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -111,10 +118,8 @@ const Menu = () => {
           </div>
         </header>
 
-        {/* Dynamic Filter Controls Layout */}
+        {/* Filter Controls Layout */}
         <section className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10 border-b border-stone-100 pb-6">
-          
-          {/* Premium Category Switchers */}
           <nav className="flex gap-2 overflow-x-auto no-scrollbar scroll-smooth pb-2 lg:pb-0 -mx-4 px-4 sm:mx-0 sm:px-0">
             {MENU_CATEGORIES.map((cat) => {
               const isActive = selectedCategory === cat;
@@ -134,7 +139,7 @@ const Menu = () => {
             })}
           </nav>
 
-          {/* Interactive Sorting Action Pills */}
+          {/* Sorting Actions */}
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-wider text-stone-400 mr-2">Sort by:</span>
             

@@ -1,20 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
-const salad = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400";
-const bowl = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400";
-const smoothie = "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=400";
-const fruits = "https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=400";
-const wrap = "https://images.unsplash.com/photo-1626700051175-6518c4793f4f?w=400";
-const soup = "https://images.unsplash.com/photo-1547592165-e1d17f57655c?w=400";
+import avocado from "../assets/Avocado-Toast.jpg";
+import bowl from "../assets/Buddha-Bowl.jpg";
+import fruits from "../assets/Fruit-Bowl.webp";
+import smoothie from "../assets/Green-Smoothie.jpg";
+import protein from "../assets/CreamySpinachSoupcard-10.avif"; 
+import salad from "../assets/Salad-Bowl.jpg";
 
 const categories = [
-  { id: 1, name: "Salads", image: salad }, // Fixed: foodData category list ke saath matching ki
-  { id: 2, name: "Bowls", image: bowl },
-  { id: 3, name: "Drinks", image: smoothie },
-  { id: 4, name: "Fruits", image: fruits },
-  { id: 5, name: "Wraps", image: wrap },  // Fixed: Extra space removed
-  { id: 6, name: "Soups", image: soup },
+  { id: 1, name: "Fresh Salads", image: salad },
+  { id: 2, name: "Buddha Bowl", image: bowl },
+  { id: 3, name: "Green Smoothie", image: smoothie },
+  { id: 4, name: "Fruit Bowl", image: fruits },
+  { id: 5, name: " Wraps", image: avocado },
+  { id: 6, name: "Soups", image: protein }, 
 ];
 
 const Categories = () => {
