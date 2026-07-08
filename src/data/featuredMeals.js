@@ -1,8 +1,8 @@
 // src/data/featuredMeals.js
-import avocado from "../assets/avocado-toast.jpg";
-import bowl from "../assets/buddha-bowl.jpg";
-import fruit from "../assets/fruit-bowl.webp";
-import smoothie from "../assets/green-smoothie.jpg";
+import avocado from "../assets/Avocado-Toast.jpg";
+import bowl from "../assets/Buddha-Bowl.jpg";
+import fruit from "../assets/Fruit-Bowl.webp";
+import smoothie from "../assets/Green-Smoothie.jpg";
 
 export const featuredMeals = [
   {
