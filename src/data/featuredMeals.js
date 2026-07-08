@@ -1,10 +1,9 @@
 // src/data/featuredMeals.js
 
-// LIVE RELIABLE CDN IMAGES (Koi local path ya case-sensitivity ka error nahi aayega)
-const avocadoToastImg = "https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=500";
-const buddhaBowlImg = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500";
-const fruitBowlImg = "https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=500";
-const greenSmoothieImg = "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=500";
+const avocadoToastImg = "/food-images/AvocadoGreensaladcard-1.jpg";
+const buddhaBowlImg    = "/food-images/Quinoa&BroccoliBowlcard-1.jpg";
+const fruitBowlImg      = "/food-images/fruitbowlscard-1.webp";
+const greenSmoothieImg  = "/food-images/DetoxGreenSmoothiecard-1.jpg";
 
 export const featuredMeals = [
   {
