@@ -1,21 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-// LIVE RELIABLE CDN IMAGES (Ab path ya letter casing ka koi issue nahi aayega)
 const salad = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400";
 const bowl = "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400";
 const smoothie = "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=400";
 const fruits = "https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=400";
-const wrap = "https://images.unsplash.com/photo-1626700051175-6518c4793f4f?w=400"; // Dynamic Wrap Image
-const soup = "https://images.unsplash.com/photo-1547592165-e1d17f57655c?w=400";  // Dynamic Soup Image
+const wrap = "https://images.unsplash.com/photo-1626700051175-6518c4793f4f?w=400";
+const soup = "https://images.unsplash.com/photo-1547592165-e1d17f57655c?w=400";
 
 const categories = [
-  { id: 1, name: "Fresh Salads", image: salad },
-  { id: 2, name: "Buddha Bowl", image: bowl },
-  { id: 3, name: "Green Smoothie", image: smoothie },
-  { id: 4, name: "Fruit Bowl", image: fruits },
-  { id: 5, name: "Wraps", image: wrap }, // Fixed: Ab yahan salad/avocado nahi, wrap ki image dikhegi
-  { id: 6, name: "Soups", image: soup },  // Fixed: Soup ki proper image map kar di
+  { id: 1, name: "Salads", image: salad }, // Fixed: foodData category list ke saath matching ki
+  { id: 2, name: "Bowls", image: bowl },
+  { id: 3, name: "Drinks", image: smoothie },
+  { id: 4, name: "Fruits", image: fruits },
+  { id: 5, name: "Wraps", image: wrap },  // Fixed: Extra space removed
+  { id: 6, name: "Soups", image: soup },
 ];
 
 const Categories = () => {
@@ -40,7 +39,7 @@ const Categories = () => {
           {categories.map((item) => (
             <div
               key={item.id}
-              onClick={() => navigate(`/menu?type=${encodeURIComponent(item.name.trim())}`)}
+              onClick={() => navigate(`/menu?type=${encodeURIComponent(item.name)}`)}
               className="bg-white rounded-3xl p-6 shadow hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
             >
               <div className="flex justify-center">
